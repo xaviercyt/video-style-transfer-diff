@@ -1,2 +1,3 @@
 # video-style-transfer-diff
-The InSTvideo.jpynb can run on colab. Follow the code will help you done the flow.
+Put this project into Google Drive first.
+The InSTvideo.jpynb can run on Colab. Follow the code will help you do the flow.
