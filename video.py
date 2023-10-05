@@ -24,9 +24,9 @@ def load_video(content_path,style_path, outfile):
     fps = int(rate)
 
     video_name = outfile + '/{:s}_stylized_{:s}{:s}'.format(
-        splitext(basename(content_path))[0], splitext(basename(style_path))[0], '.avi')
+        splitext(basename(content_path))[0], splitext(basename(style_path))[0], '.mp4')
 
-    videoWriter = cv2.VideoWriter(video_name, cv2.VideoWriter_fourcc(*'DIVX'), fps,(512,512))
+    videoWriter = cv2.VideoWriter(video_name, cv2.VideoWriter_fourcc(*'DIVX'), fps,(512,1280))
                                   #(int(width), int(height)))
 
     return video,videoWriter
@@ -47,7 +47,7 @@ def save_frame(output, videoWriter):
 def main(content_path,style_path,outfile):
     video,videoWriter=load_video(content_path,style_path,outfile)
     j = 11
-    path_to_check = './img2img-samples'
+    path_to_check = './img2img-samples 4'
     target_file = 'tmp-_-00' + str(j) + '.png'
     if video.isOpened():
         while(os.path.exists(os.path.join(path_to_check, target_file))):
@@ -56,12 +56,12 @@ def main(content_path,style_path,outfile):
             #save_frame(img, videoWriter)
             videoWriter.write(img)
             j = j+1
-            target_file = 'tmp-_-00' + str(j) + '.png'
+            target_file = 'tmp-_-' + f"{j:04d}" + '.png'
     else:
         print('it doesnt opened')
 
-content_path = './room.mp4'
-style_path = ''
+content_path = './4321.mp4'
+style_path = 'longhair'
 outfile = './outputs'
 main(content_path,style_path,outfile)
 

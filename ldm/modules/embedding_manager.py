@@ -144,6 +144,7 @@ class EmbeddingManager(nn.Module):
 
     def embedding_to_coarse_loss(self):        
         loss = 0.
+        loss = 0.
         num_embeddings = len(self.initial_embeddings)
 
         for key in self.initial_embeddings:
